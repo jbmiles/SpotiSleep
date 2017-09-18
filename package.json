@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "spotify-web-api-node": "^2.5.0"
   }
