@@ -1,9 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const spotifyWebApi = require('spotify-web-api-node');
-const secrets = require("./secrets.js");
 const path = require('path');
 const app = express();
+
+let secrets =  {
+    clientId: process.env.clientId,
+    clientSecret: process.env.clientSecret,
+    redirectUri: process.env.redirectUri
+}
+
 const spotifyApi = new spotifyWebApi(secrets);
 
 
