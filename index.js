@@ -1,15 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const spotifyWebApi = require('spotify-web-api-node');
+const secrets = require("./secrets.js");
 const path = require('path');
 const app = express();
-
-let secrets =  {
-    clientId: process.env.clientId,
-    clientSecret: process.env.clientSecret,
-    redirectUri: process.env.redirectUri
-}
-
 const spotifyApi = new spotifyWebApi(secrets);
 
 
@@ -21,7 +15,7 @@ app.get('/', function (req, res) {
   res.redirect('/getAuth');
 });
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(3000, function () {
   console.log('app listening on port 3000!');
 });
 
