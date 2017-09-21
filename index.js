@@ -41,6 +41,7 @@ app.get("/redirect", function(req, res) {
 app.post('/setTimer', function(req, res) {
   const time = req.body.time;
   console.log("timer set!");
+  console.log(time);
   setTimeout(() =>{
     spotifyApi.pause()
     .then(data => {
