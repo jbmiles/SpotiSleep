@@ -32,6 +32,19 @@ app.get("/redirect", function(req, res) {
   .then(data => {
     spotifyApi.setAccessToken(data.body['access_token']);
     spotifyApi.setRefreshToken(data.body['refresh_token']);
+    setInterval(function() {
+        spotifyApi.setAccessToken(globalAccessToken);
+        spotifyApi.setRefreshToken(globalRefreshToken);
+        spotifyApi.refreshAccessToken()
+        .then(function(data) {
+          console.log('The access token has been refreshed!');
+
+          spotifyApi.setAccessToken(data.body['access_token']);
+          globalAccessToken = data.body['access_token'];
+        }, function(err) {
+          console.log('Could not refresh access token', err);
+        });
+      },1800000)
   }, err => {
     console.log('Something went wrong!', err);
   });
