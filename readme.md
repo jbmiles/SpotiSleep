@@ -15,5 +15,6 @@ module.exports = {
 
 ```
 To get a clientId and secret, visit [here](https://developer.spotify.com/my-applications/#!/applications).
+Make sure you have [node](https://nodejs.org/en/) installed too.
 
 Great for playing music while you sleep!
