@@ -48,8 +48,6 @@ async function authorizeCode(code) {
   spotifyApi.setAccessToken(data.body['access_token']);
   spotifyApi.setRefreshToken(data.body['refresh_token']);
   setInterval(async function() {
-      spotifyApi.setAccessToken(globalAccessToken);
-      spotifyApi.setRefreshToken(globalRefreshToken);
       const data2 = await spotifyApi.refreshAccessToken()
       console.log('The access token has been refreshed!');
 
